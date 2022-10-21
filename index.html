@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitation</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;600&display=swap');
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background: linear-gradient(0deg, rgb(0 0 0 / 0.2), rgb(0 0 0 / 0.7)), url('https://t4.ftcdn.net/jpg/04/24/37/77/360_F_424377748_GN58klscq6HK7UtWYVWqOLQko0CPoMAv.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center center;
+            box-sizing: border-box;
+            font-family: 'Andika', sans-serif;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            height: 700px;
+            width: 100%;
+        }
+
+        .title {
+            text-align: center;
+            justify-items: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .title h1 {
+            color: rgb(255, 228, 165);
+            text-align: center;
+            z-index: 2;
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-shadow: 0px 5px 5px black;
+            font-family: 'Noto Serif Bengali', serif;
+        }
+
+        .title .design img {
+            height: 150px;
+            filter: invert(.9);
+            margin-top: -110px;
+            z-index: 1;
+        }
+
+        .card {
+            position: absolute;
+            cursor: pointer;
+            transition: 0.7s;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            width: 530px;
+            height: 330px;
+            transform: rotate(90deg);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+
+        @media only screen and (max-width: 800px) {
+            .container {
+                height: 500px;
+            }
+
+            .card {
+                height: 250px;
+                width: 370px;
+            }
+        }
+
+        .card1 {
+            background-image: url(attachments/a4.jpg);
+        }
+
+        .card2 {
+            background-image: url(attachments/a3.jpg);
+        }
+
+        .card:hover {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+            transform: scale(1.15) rotate(90deg);
+            transition: 1s ease-in-out;
+        }
+
+        .card:hover::before {
+            transform: perspective(1000px) rotateX(130deg);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .card:hover::after {
+            transform: perspective(1000px) rotateX(-135deg);
+            box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .card::before,
+        .card::after {
+            transition: 0.5s ease-in-out;
+            content: "";
+            width: 100%;
+            display: block;
+            position: absolute;
+            height: 50%;
+            background-size: cover;
+        }
+
+        .card::before {
+            background-image: url(attachments/a5.jpg);
+            transform: perspective(1500px) rotateX(15deg);
+            transform-origin: 50% 0;
+            top: 0;
+            left: 0;
+        }
+
+        .card::after {
+            background-image: url(attachments/a6.jpg);
+            transform: perspective(1500px) rotateX(-30deg);
+            transition-delay: 290ms;
+            transform-origin: 50% 100%;
+            background-position: 0 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <iframe src="audio.mp3" allow="autoplay" id="audio" hidden style="display: none;" ></iframe>
+    <audio id="player"  style="display: none;" autoplay controls loop>
+        <source src="audio.mp3" type="audio/mp3">
+    </audio>
+    <div class="main">
+        <div class="title">
+            <h1>বধূবরণ</h1>
+            <div class="design">
+                <img src="https://o.remove.bg/downloads/20007a8d-da09-462c-bfbb-ad815ccb493b/image-removebg-preview.png"
+                    alt="">
+            </div>
+        </div>
+        <div class="container">
+            <div class="card card1">
+                <div class="content">
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+            integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+        <script>
+            $(".card").click(function () {
+                $(".card").toggleClass('card2');
+            });
+        </script>
+</body>
+
+</html>
